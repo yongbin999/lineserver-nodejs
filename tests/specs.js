@@ -1,12 +1,17 @@
 var request = require('supertest');
+var assert = require('assert');
+
+
+
 describe('loading express', function () {
   var server;
   beforeEach(function () {
-    server = require('./server');
+    server = require('../app');
   });
   afterEach(function () {
-    server.close();
+    //server.close();
   });
+
   it('responds to /', function testSlash(done) {
   request(server)
     .get('/')
