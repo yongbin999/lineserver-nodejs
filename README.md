@@ -44,6 +44,7 @@ or
 * What third-party libraries or other tools does the system use? How did you choose each library or framework you used?
 > * nodejs' express server to quickly setup the http api service. 
 > * mocha and supertest for some quick route testing.
+> * commandline scripts: sed and split are native to most linux machines, and already optimized for performance. 
 
 * How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?
 > * I've spend about 3 hours research and designing, 5 hours coding/testing/reviewing the solution.
