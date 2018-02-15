@@ -10,7 +10,7 @@ This will run the preprocessing of a text file into chucks
 ```
 
 ## Running the app
-This will run the nodejs express server on localhost:8080
+This will run the nodejs express server on localhost:3000
 ```
     npm run start
 ```
