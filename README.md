@@ -30,7 +30,7 @@ or
 > * The main logic of this line server app is to first split the file into chunks by predetermined number of lines. When we get the request line number, we can do some math to figure out the filename location, and then find the line in that chucked file with the mod-line number.
 
 * How will your system perform with a 1 GB file? a 10 GB file? a 100 GB file?
-> * Runtime: O(n) where n is the line-size of the chuck block
+> * Runtime: O(k) where k is the line-size of the chuck block
 > * Storage: O(2n) where n is the size of the text files
 > * File size will not impact the system runtime performance, as long as we have enough storage for these splited files. The line splitting creates an skip index with O(1) search. Then we can read through the chuck to find the line O(n). 
 
