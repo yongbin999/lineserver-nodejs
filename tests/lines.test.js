@@ -30,11 +30,17 @@ describe('loading express', function () {
     .expect(200, done);
   });
 
-  it('get route /lines/999 - end of file ', function testEOF(done) {
+  it('get route /lines/10001 - happy path splitfile', function testSuccessLine(done) {
+  request(server)
+    .get('/lines/10001')
+    .expect(200, done);
+  });
+
+  it('get route /lines/999999 - line out of bound ', function testEOF(done) {
   request(server)
     //.set('Authorization', 'Token exampletoken')
     //.field('Content-Type', 'application/json')
-    .get('/lines/999')
+    .get('/lines/999999')
     .expect(413, done);
   });
 
