@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #install node modules
-npm run install
+echo '\t'installing npm packages
+npm install
 
 
 # preprocess a sample test file 
