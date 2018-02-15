@@ -1,6 +1,7 @@
 
 ### Installing
-please install npm and nodejs following direction here
+* The code will require running commandline scripts "sed" and "split". You should run this in a linux machine.
+* install npm and nodejs following direction here
 https://www.npmjs.com/get-npm
 
 ## Build
