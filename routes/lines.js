@@ -3,6 +3,7 @@ var router = express.Router();
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 var path = require("path");
+var fs = require('fs');
 
 var postfixDigits = 5; //posible overflow
 var splitNumber = 10000;
@@ -19,10 +20,13 @@ router.get("/:line", function (req, res, next) {
   var file_numberPostfix = Math.floor(line / splitNumber);
   file_numberPostfix = ("0".repeat(postfixDigits) + file_numberPostfix).slice(-postfixDigits)
   //console.log(file_numberPostfix);
-  
+
   mod_lineNumber = line % splitNumber
   var fileLocation = path.join("public/splitFiles", fileName + "." + file_numberPostfix);
-  
+  if (!fs.existsSync(fileLocation)) {
+    return res.status(413).send("The requested line is out of bound");
+  }
+
   findLine(mod_lineNumber, fileLocation)
     .then(resp => {
       //console.log(resp);
@@ -30,6 +34,7 @@ router.get("/:line", function (req, res, next) {
         console.error(`stderr: ${resp.stderr}`);
         return res.status(500).send("Unable to process your request.");
       } else {
+        // on the last file, this will check if its out of bound
         if (!resp.stdout) {
           return res.status(413).send("The requested line is out of bound");
         }
