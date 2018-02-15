@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+
+# custome files to ignore
+public/splitFiles/
