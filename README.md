@@ -22,40 +22,42 @@ or
 ```
     npm run test
 ```
-======
+---
+
 
 ### Analysis:
 * How does your system work? (if not addressed in comments in source)
-..* The main logic of this line server app is is to split the files into chunks by fixed number of lines. When we get the request line number, we can do some math to figure out the file location, and then find the mod line number in that splited file.
+...The main logic of this line server app is is to split the files into chunks by fixed number of lines. When we get the request line number, we can do some math to figure out the file location, and then find the mod line number in that splited file.
 
 * How will your system perform with a 1 GB file? a 10 GB file? a 100 GB file?
-..* Runtime: O(n) where n is the line-size of the chuck block
-..* File size will not impact the runtime system performance as long as we have enough storage. The line splitting creates an skip index. Then we can read through the chuck to find the line. 
+...Runtime: O(n) where n is the line-size of the chuck block
+...File size will not impact the runtime system performance as long as we have enough storage. The line splitting creates an skip index. Then we can read through the chuck to find the line. 
 
 
 * How will your system perform with 100 users? 10000 users? 1000000 users?
-... The findLine() function is writen in async, which is nonblock and will respond to request once result is found. 
-... Nodejs provide asyn nonblocking serve implementations. The load and concurrency of user requests will depend of the server memory and number of instances of the server. 
+...The findLine() function is writen in async, which is nonblock and will respond to request once result is found. 
+...Nodejs provide asyn nonblocking serve implementations. The load and concurrency of user requests will depend of the server memory and number of instances of the server. 
 
 
 * What documentation, websites, papers, etc did you consult in doing this assignment?
-... I've used the libry documentations and online discussion boards listed in the reference below. 
+...I've used the libry documentations and online discussion boards listed in the reference below. 
 
 * What third-party libraries or other tools does the system use? How did you choose each library or framework you used?
-... nodejs' express server to quickly setup the http api service. 
-... mocha and supertest for some quick route testing.
+...nodejs' express server to quickly setup the http api service. 
+...mocha and supertest for some quick route testing.
 
 
 * How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?
-... I've spend about 3 hours research and designing, 5 hours coding and testing the solution.
-... I've have more time, I would do more error handing in the functions and scripts to check for overflows and other corner cases.
+...I've spend about 3 hours research and designing, 5 hours coding and testing the solution.
+...I've have more time, I would do more error handing in the functions and scripts to check for overflows and other corner cases.
 
 
 * If you were to critique your code, what would you have to say about it?
 ..* The solution uses a lot of storage. 
 ..* It will take some time to preprocess the text files when it is big. ..* The error handling might not cover all cases. 
 
-======
+---
+
 ### References:
 * split commandline to split file by number of lines:
 https://stackoverflow.com/questions/33444369/splitting-bulk-text-file-every-n-line
