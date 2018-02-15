@@ -32,14 +32,14 @@ or
 
 * How will your system perform with a 1 GB file? a 10 GB file? a 100 GB file?
 
-> Runtime: O(n) where n is the line-size of the chuck block
-> File size will not impact the runtime system performance as long as we have enough storage. The line splitting creates an skip index. Then we can read through the chuck to find the line. 
+> * Runtime: O(n) where n is the line-size of the chuck block
+> * File size will not impact the runtime system performance as long as we have enough storage. The line splitting creates an skip index. Then we can read through the chuck to find the line. 
 
 
 * How will your system perform with 100 users? 10000 users? 1000000 users?
 
-> The findLine() function is writen in async, which is nonblock and will respond to request once result is found. 
-> Nodejs provide asyn nonblocking serve implementations. The load and concurrency of user requests will depend of the server memory and number of instances of the server. 
+> * The findLine() function is writen in async, which is nonblock and will respond to request once result is found. 
+> * Nodejs provide asyn nonblocking serve implementations. The load and concurrency of user requests will depend of the server memory and number of instances of the server. 
 
 
 * What documentation, websites, papers, etc did you consult in doing this assignment?
@@ -48,21 +48,21 @@ or
 
 * What third-party libraries or other tools does the system use? How did you choose each library or framework you used?
 
-> nodejs' express server to quickly setup the http api service. 
-> mocha and supertest for some quick route testing.
+> * nodejs' express server to quickly setup the http api service. 
+> * mocha and supertest for some quick route testing.
 
 
 * How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?
 
-> I've spend about 3 hours research and designing, 5 hours coding and testing the solution.
-> I've have more time, I would do more error handing in the functions and scripts to check for overflows and other corner cases.
+> * I've spend about 3 hours research and designing, 5 hours coding and testing the solution.
+> * I've have more time, I would do more error handing in the functions and scripts to check for overflows and other corner cases. I would also  create CICD deployment pipeline with docker. The prioritization depends on what has the most impact to the end user. If end user are concern with security for example, then we can work on auth servic like JWT.
 
 
 * If you were to critique your code, what would you have to say about it?
 
-> The solution uses a lot of storage. 
-> It will take some time to preprocess the text files when it is big. 
-> The error handling might not cover all cases. 
+> * The solution uses a lot of storage. 
+> * It will take some time to preprocess the text files when it is big. 
+> * The error handling might not cover all cases. 
 
 ---
 
