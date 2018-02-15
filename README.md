@@ -4,6 +4,8 @@
 
 
 ### References:
+* split commandline to split file by number of lines
+https://stackoverflow.com/questions/33444369/splitting-bulk-text-file-every-n-line
 
 * executing commandline with child_process
 https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
