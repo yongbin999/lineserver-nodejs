@@ -32,7 +32,7 @@ or
 * How will your system perform with a 1 GB file? a 10 GB file? a 100 GB file?
 > * Runtime: O(k) where k is the line-size of the chuck block
 > * Storage: O(2n) where n is the size of the text files
-> * File size will not impact the system runtime performance, as long as we have enough storage for these splited files. The line splitting creates an skip index with O(1) search. Then we can read through the chuck to find the line O(n). 
+> * File size will not impact the system runtime performance, as long as we have enough storage for these splited files. The line splitting creates an skip index as the chucked blocks, then we can read through the chuck to find the line O(k). 
 
 * How will your system perform with 100 users? 10000 users? 1000000 users?
 > * The findLine() function is writen in async promise, which is nonblock and will respond to request once result is found.
